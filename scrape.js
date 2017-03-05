@@ -18,6 +18,23 @@ function getPrecentage(n, p) {
   return (n * p) / 100;
 }
 
+function getProductFeature(feature) {
+  var el = document.querySelector('product-table');
+  var ths;
+
+  if (el) {
+    ths = el.querySelectorAll("th");
+    if (ths) {
+      ths = [].slice.call(ths);
+      ths.forEach(function(th) {
+        if th.innerHTML.trim().toLowerCase() === feature.toLowerCase();
+        return th;
+      })
+    }
+  }
+
+}
+
 tvProdoucts.forEach(function(p, i) {
 
   var url = p.querySelector(".product-image").href;
